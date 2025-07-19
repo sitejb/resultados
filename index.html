@@ -1579,9 +1579,6 @@
           <img id="previewImage" src="" alt="Preview da imagem">
         </div>
         <div class="image-modal-footer">
-          <button class="btn btn-primary" id="backToOptionsBtn" style="display: none;">
-            ← Voltar
-          </button>
           <button class="btn btn-primary" onclick="closeImageModal()">
             ← Cancelar
           </button>
@@ -2613,18 +2610,6 @@
                     link.click();
                     document.body.removeChild(link);
                 };
-                
-                // Configurar botão 'Voltar' (apenas para resultados)
-                const backBtn = document.getElementById('backToOptionsBtn');
-                if (type === 'result') {
-                    backBtn.style.display = 'inline-flex';
-                    backBtn.onclick = () => {
-                        closeImageModal();
-                        openCreatePngModal(currentCreatePngType, currentCreatePngCardId);
-                    };
-                } else {
-                    backBtn.style.display = 'none';
-                }
                 
                 // Abrir modal de visualização
                 openImageModal();
