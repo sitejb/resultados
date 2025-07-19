@@ -6,5 +6,13 @@
       "PT-RIO, RJ, 14:20, PT",
       "PT-RIO, RJ, 16:00, PTV"
     ]
+  },
+  "1-10": {
+    "Sábado": [
+      "PT-RIO, RJ, 09:20, PT do 1º ao 10º",
+      "PT-RIO, RJ, 11:00, PTM do 1º ao 10º",
+      "PT-RIO, RJ, 14:20, PT do 1º ao 10º",
+      "PT-RIO, RJ, 16:00, PTV do 1º ao 10º"
+    ]
   }
 }
