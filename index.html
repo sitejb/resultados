@@ -1,0 +1,2726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultados PT-RIO</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+  
+  <!-- Google Fonts para uma tipografia ultra-elegante -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* === TEMA ULTRA-MODERNO E SOFISTICADO === */
+    :root {
+      --bg-primary: #0f0f23;
+      --bg-secondary: #1a1a2e;
+      --bg-card: #16213e;
+      --bg-card-hover: #1e2a4a;
+      --text-primary: #e2e8f0;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border-color: #334155;
+      --border-accent: #475569;
+      --accent-primary: #3b82f6;
+      --accent-secondary: #8b5cf6;
+      --accent-success: #10b981;
+      --accent-warning: #f59e0b;
+      --accent-danger: #ef4444;
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-primary);
+      background-image: 
+        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Header Styles */
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      background: var(--gradient-primary);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+      letter-spacing: -0.02em;
+      position: relative;
+    }
+
+    .subtitle {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+      font-weight: 400;
+    }
+
+    /* Calendar Styles - Melhorado para mobile */
+    .calendar-container {
+      max-width: 400px;
+      margin: 0 auto 1rem;
+      position: relative;
+    }
+
+    .date-picker {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+
+    .date-picker:hover, .date-picker:active {
+      border-color: var(--accent-primary);
+      box-shadow: var(--shadow-glow);
+      transform: translateY(-2px) scale(0.98);
+    }
+
+    .date-picker:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* Melhorias específicas para o calendário Flatpickr em mobile */
+    .flatpickr-calendar {
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 16px !important;
+      box-shadow: var(--shadow-xl) !important;
+      backdrop-filter: blur(10px) !important;
+    }
+
+    .flatpickr-months {
+      background: var(--bg-secondary) !important;
+      border-radius: 16px 16px 0 0 !important;
+    }
+
+    .flatpickr-month {
+      color: var(--text-primary) !important;
+    }
+
+    .flatpickr-current-month .flatpickr-monthDropdown-months {
+      background: var(--bg-card) !important;
+      color: var(--text-primary) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 8px !important;
+    }
+
+    .flatpickr-current-month input.cur-year {
+      background: var(--bg-card) !important;
+      color: var(--text-primary) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 8px !important;
+    }
+
+    .flatpickr-weekdays {
+      background: var(--bg-secondary) !important;
+    }
+
+    .flatpickr-weekday {
+      color: var(--text-secondary) !important;
+      font-weight: 600 !important;
+    }
+
+    .flatpickr-days {
+      background: var(--bg-card) !important;
+    }
+
+    .flatpickr-day {
+      color: var(--text-primary) !important;
+      border-radius: 8px !important;
+      margin: 2px !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .flatpickr-day:hover {
+      background: var(--bg-card-hover) !important;
+      border-color: var(--accent-primary) !important;
+    }
+
+    .flatpickr-day.selected {
+      background: var(--accent-primary) !important;
+      border-color: var(--accent-primary) !important;
+      color: white !important;
+    }
+
+    .flatpickr-day.today {
+      border-color: var(--accent-secondary) !important;
+      color: var(--accent-secondary) !important;
+    }
+
+    .flatpickr-day.today.selected {
+      background: var(--accent-primary) !important;
+      color: white !important;
+    }
+
+    .flatpickr-prev-month, .flatpickr-next-month {
+      color: var(--text-secondary) !important;
+      fill: var(--text-secondary) !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .flatpickr-prev-month:hover, .flatpickr-next-month:hover {
+      color: var(--accent-primary) !important;
+      fill: var(--accent-primary) !important;
+    }
+
+    /* Estilo para o botão de inverter ordem */
+    .order-toggle-btn {
+      margin: 1rem auto;
+      display: block;
+      max-width: 400px;
+      width: 100%;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .order-toggle-btn:hover, .order-toggle-btn:active {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-primary);
+      transform: translateY(-2px) scale(0.98);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* Data Container */
+    .data-container {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
+    }
+
+    /* Card Styles */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      overflow: hidden;
+      display: none;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(10px);
+      position: relative;
+      max-width: 320px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--border-accent);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header {
+      background: var(--gradient-primary);
+      padding: 1rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .card:hover .card-header::before {
+      left: 100%;
+    }
+
+    .card-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: white;
+      margin: 0;
+      text-align: center;
+      letter-spacing: 0.025em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    /* Table Styles */
+    .table-container {
+      overflow-x: auto;
+      border-radius: 12px;
+      background: var(--bg-secondary);
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    th {
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.75rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    td {
+      padding: 0.75rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 500;
+      font-size: 0.875rem;
+      transition: background-color 0.2s ease;
+    }
+
+    tbody tr:hover td {
+      background: var(--bg-card-hover);
+    }
+
+    /* Estilo para toda a primeira linha de cada tabela */
+    tbody tr:first-child {
+      font-weight: 700;
+      color: #FFD700; /* Amarelo claro */
+    }
+
+    /* Emoji de coroa dentro da primeira célula da primeira linha, antes do texto */
+    tbody tr:first-child td:first-child::before {
+      content: '👑 ';
+      font-size: 0.75rem;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Timestamp */
+    .timestamp {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+
+    /* Actions Bar */
+    .actions-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+
+    /* Button Group */
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+    }
+
+    /* Button Styles */
+    .btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-primary:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-accent {
+      background: var(--gradient-primary);
+      color: white;
+      border: 1px solid transparent;
+    }
+
+    .btn-accent:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* Card Footer */
+    .card-footer {
+      padding: 0.75rem 1.5rem;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* Acerto Balões */
+    .acerto-balao {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 0.75rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .acerto-balao:hover {
+      transform: scale(1.1);
+    }
+
+    .acerto-balao.milhar {
+      background: var(--gradient-success);
+      color: white;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .acerto-balao.centena {
+      background: var(--gradient-secondary);
+      color: white;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    .acerto-balao.dezena {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      border: 2px solid var(--border-accent);
+    }
+
+    .acerto-balao.grupo {
+      background: none;
+      font-size: 1.25rem;
+      width: auto;
+      height: auto;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-5px); }
+      60% { transform: translateY(-3px); }
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 15, 35, 0.8);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      width: 90%;
+      max-width: 700px;
+      max-height: 95vh; /* Aumentado para 95% da altura da tela */
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-xl);
+      animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes slideUp {
+      from { 
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 1.25rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .close-btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+      max-height: 75vh; /* Aumentado para 75% da altura da tela */
+      overflow-y: auto;
+    }
+
+    .modal-body::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .modal-body::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+      border-radius: 4px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+      background: var(--border-accent);
+      border-radius: 4px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-primary);
+    }
+
+    /* Frases de Acertos */
+    .frases-acertos p {
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--accent-primary);
+      padding: 0.75rem;
+      margin: 0.75rem 0;
+      border-radius: 8px;
+      color: var(--text-primary);
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .frases-acertos p:hover {
+      background: var(--bg-card-hover);
+      transform: translateX(4px);
+    }
+
+    /* No Data */
+    .no-data {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 2rem 1rem;
+      font-style: italic;
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Toast Notification */
+    .toast {
+      visibility: hidden;
+      opacity: 0;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      min-width: 250px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      z-index: 2000;
+      box-shadow: var(--shadow-xl);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateY(-20px) translateX(20px);
+    }
+
+    .toast.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0) translateX(0);
+    }
+
+    .toast-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      background: var(--gradient-success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+
+    /* Modal de Visualização de Imagem */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    .image-modal-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .image-modal-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 15, 35, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2001;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .image-modal-title {
+      color: var(--text-primary);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .image-modal-close {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .image-modal-close:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+
+    .image-modal-body {
+      flex: 1;
+      padding: 5rem 1rem 6rem;
+      overflow-y: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-modal-body img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .image-modal-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 15, 35, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      z-index: 2001;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .download-btn {
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .image-modal-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 15, 35, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      z-index: 2001;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .image-modal-footer .btn,
+    .image-modal-footer .download-btn {
+      min-width: 150px;
+      padding: 0.75rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border: none;
+    }
+
+    /* Responsividade para dispositivos móveis */
+    @media (max-width: 767px) {
+      .image-modal-footer {
+        padding: 0.75rem;
+        gap: 0.75rem;
+      }
+      
+      .image-modal-footer .btn,
+      .image-modal-footer .download-btn {
+        min-width: 120px;
+        max-width: 140px;
+        padding: 0.625rem 1rem;
+        font-size: 0.875rem;
+        flex: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .image-modal-footer {
+        padding: 0.5rem;
+        gap: 0.5rem;
+      }
+      
+      .image-modal-footer .btn,
+      .image-modal-footer .download-btn {
+        min-width: 100px;
+        max-width: 120px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+        flex: 1;
+      }
+    }
+
+    .image-modal-footer .btn {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .image-modal-footer .btn:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .image-modal-footer .download-btn {
+      background: var(--gradient-primary);
+      color: white;
+    }
+
+    .image-modal-footer .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* Estilos para opções de imagem no modal */
+    .image-options {
+      margin: 1rem 0;
+      padding: 1rem;
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .image-options h5 {
+      margin: 0 0 0.75rem 0;
+      color: var(--text-primary);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .image-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .image-option input[type="radio"] {
+      margin: 0;
+      accent-color: var(--accent-primary);
+    }
+
+    .image-option label {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      cursor: pointer;
+      flex: 1;
+    }
+
+    /* Responsive Design - Melhorado para mobile */
+    @media (min-width: 1024px) {
+      .data-container {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
+      }
+      .card {
+        max-width: 320px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .data-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .card {
+        max-width: 100%;
+      }
+      .card-header {
+        padding: 1rem;
+      }
+      .card-body {
+        padding: 1.25rem;
+      }
+      .card-title {
+        font-size: 1rem;
+      }
+      th, td {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+      }
+      .btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+      }
+      .acerto-balao {
+        width: 1.75rem;
+        height: 1.75rem;
+        font-size: 0.7rem;
+      }
+      .acerto-balao.grupo {
+        font-size: 1rem;
+      }
+      
+      /* Melhorias no calendário para tablet */
+      .flatpickr-calendar {
+        font-size: 14px !important;
+      }
+      
+      .flatpickr-day {
+        width: 36px !important;
+        height: 36px !important;
+        line-height: 36px !important;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .container {
+        padding: 1rem;
+      }
+      .data-container {
+        grid-template-columns: 1fr;
+      }
+      .card {
+        max-width: 100%;
+      }
+      .card-body {
+        padding: 1rem;
+      }
+      .card-header {
+        padding: 0.75rem 1rem;
+      }
+      .card-title {
+        font-size: 0.875rem;
+      }
+      .button-group {
+        padding: 0.75rem;
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.5rem;
+        font-size: 0.75rem;
+      }
+      th, td {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+      }
+      .modal-content {
+        width: 95%;
+        max-height: 98vh; /* Quase toda a altura da tela em mobile */
+        margin: 1rem;
+      }
+      .modal-body {
+        padding: 1rem;
+        max-height: 80vh; /* Aumentado para mobile */
+      }
+      .modal-title {
+        font-size: 1rem;
+      }
+      .close-btn {
+        font-size: 1rem;
+      }
+      .acerto-balao {
+        width: 1.75rem;
+        height: 1.75rem;
+        font-size: 0.7rem;
+      }
+      .acerto-balao.grupo {
+        font-size: 1rem;
+      }
+      .calendar-container {
+        max-width: 100%;
+        padding: 0 0.5rem;
+      }
+      .date-picker {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+        border-radius: 12px;
+      }
+      .order-toggle-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        max-width: 100%;
+        border-radius: 10px;
+      }
+      .toast {
+        min-width: 200px;
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.5rem 0.75rem;
+      }
+      .toast-icon {
+        width: 1rem;
+        height: 1rem;
+        font-size: 0.625rem;
+      }
+      
+      /* Melhorias específicas do calendário para mobile */
+      .flatpickr-calendar {
+        width: 100% !important;
+        max-width: 320px !important;
+        font-size: 16px !important; /* Evita zoom no iOS */
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+      }
+      
+      .flatpickr-months {
+        padding: 0.5rem !important;
+      }
+      
+      .flatpickr-month {
+        height: auto !important;
+      }
+      
+      .flatpickr-current-month {
+        font-size: 1rem !important;
+        padding: 0.5rem 0 !important;
+      }
+      
+      .flatpickr-weekdays {
+        padding: 0.25rem 0 !important;
+      }
+      
+      .flatpickr-weekday {
+        font-size: 0.75rem !important;
+        padding: 0.5rem 0 !important;
+      }
+      
+      .flatpickr-days {
+        padding: 0.5rem !important;
+      }
+      
+      .flatpickr-day {
+        width: 40px !important;
+        height: 40px !important;
+        line-height: 40px !important;
+        font-size: 0.875rem !important;
+        margin: 1px !important;
+        border-radius: 8px !important;
+      }
+      
+      .flatpickr-prev-month, .flatpickr-next-month {
+        width: 32px !important;
+        height: 32px !important;
+        padding: 8px !important;
+      }
+      
+      .flatpickr-prev-month svg, .flatpickr-next-month svg {
+        width: 16px !important;
+        height: 16px !important;
+      }
+      
+      /* Melhor posicionamento do calendário em mobile */
+      .flatpickr-calendar.open {
+        margin-top: 8px !important;
+      }
+
+      /* Modal de imagem responsivo */
+      .image-modal-header {
+        padding: 0.75rem;
+      }
+      
+      .image-modal-title {
+        font-size: 1rem;
+      }
+      
+      .image-modal-close {
+        font-size: 1.25rem;
+      }
+      
+      .image-modal-body {
+        padding: 4rem 0.5rem 5rem;
+      }
+      
+      .image-modal-footer {
+        padding: 0.75rem;
+      }
+      
+      .download-btn {
+        padding: 0.625rem 1.5rem;
+        font-size: 0.875rem;
+      }
+    }
+
+    /* Melhorias adicionais para touch devices */
+    @media (hover: none) and (pointer: coarse) {
+      .btn {
+        min-height: 44px; /* Tamanho mínimo recomendado para touch */
+        font-size: 0.875rem;
+      }
+      
+      .date-picker {
+        min-height: 48px;
+        font-size: 1rem;
+      }
+      
+      .order-toggle-btn {
+        min-height: 44px;
+        font-size: 0.875rem;
+      }
+      
+      .flatpickr-day {
+        min-width: 44px !important;
+        min-height: 44px !important;
+        font-size: 1rem !important;
+      }
+      
+      .close-btn {
+        min-width: 44px;
+        min-height: 44px;
+        font-size: 1.5rem;
+      }
+      
+      .image-modal-close {
+        min-width: 44px;
+        min-height: 44px;
+      }
+      
+      .download-btn {
+        min-height: 48px;
+      }
+      
+      /* Melhor espaçamento para touch */
+      .actions-bar {
+        gap: 1rem;
+      }
+      
+      .button-group {
+        gap: 1rem;
+      }
+      
+      /* Tabelas mais legíveis em touch */
+      th, td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.875rem;
+      }
+      
+      /* Modal mais acessível em touch */
+      .modal-header {
+        padding: 1.25rem 1.5rem;
+      }
+      
+      .modal-body {
+        padding: 1.25rem;
+      }
+    }
+
+    /* Melhorias específicas para dispositivos pequenos */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0.75rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .subtitle {
+        font-size: 1rem;
+      }
+      
+      .header {
+        margin-bottom: 2rem;
+      }
+      
+      .calendar-container {
+        padding: 0;
+      }
+      
+      .date-picker {
+        padding: 0.875rem 1rem;
+        font-size: 1rem;
+        border-radius: 10px;
+      }
+      
+      .order-toggle-btn {
+        padding: 0.625rem 1rem;
+        font-size: 0.875rem;
+        border-radius: 8px;
+      }
+      
+      .card {
+        border-radius: 16px;
+      }
+      
+      .card-header {
+        padding: 0.875rem 1rem;
+        border-radius: 16px 16px 0 0;
+      }
+      
+      .card-title {
+        font-size: 0.875rem;
+      }
+      
+      .card-body {
+        padding: 0.875rem;
+      }
+      
+      .table-container {
+        border-radius: 8px;
+        margin-bottom: 0.75rem;
+      }
+      
+      th, td {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.75rem;
+      }
+      
+      .btn {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.75rem;
+        border-radius: 8px;
+      }
+      
+      .button-group {
+        padding: 0.875rem;
+        gap: 0.75rem;
+      }
+      
+      .actions-bar {
+        gap: 0.5rem;
+        margin: 0.75rem 0;
+      }
+      
+      .modal-content {
+        width: 98%;
+        margin: 0.5rem;
+        border-radius: 16px;
+      }
+      
+      .modal-header {
+        padding: 1rem;
+      }
+      
+      .modal-title {
+        font-size: 0.875rem;
+      }
+      
+      .modal-body {
+        padding: 0.875rem;
+      }
+      
+      .close-btn {
+        font-size: 1.25rem;
+        padding: 0.375rem;
+      }
+      
+      .acerto-balao {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.625rem;
+      }
+      
+      .acerto-balao.grupo {
+        font-size: 0.875rem;
+      }
+      
+      .toast {
+        min-width: 180px;
+        top: 0.25rem;
+        right: 0.25rem;
+        padding: 0.5rem;
+        font-size: 0.75rem;
+        border-radius: 8px;
+      }
+      
+      .toast-icon {
+        width: 0.875rem;
+        height: 0.875rem;
+        font-size: 0.5rem;
+      }
+      
+      /* Calendário ainda mais otimizado para telas pequenas */
+      .flatpickr-calendar {
+        max-width: 280px !important;
+        font-size: 14px !important;
+      }
+      
+      .flatpickr-day {
+        width: 36px !important;
+        height: 36px !important;
+        line-height: 36px !important;
+        font-size: 0.75rem !important;
+      }
+      
+      .flatpickr-weekday {
+        font-size: 0.625rem !important;
+        padding: 0.375rem 0 !important;
+      }
+      
+      .flatpickr-current-month {
+        font-size: 0.875rem !important;
+      }
+    }
+
+    /* Melhorias para orientação landscape em mobile */
+    @media (max-width: 767px) and (orientation: landscape) {
+      .container {
+        padding: 0.75rem;
+      }
+      
+      .header {
+        margin-bottom: 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .data-container {
+        gap: 1rem;
+      }
+      
+      .card-body {
+        padding: 0.875rem;
+      }
+      
+      .modal-content {
+        max-height: 85vh;
+      }
+      
+      .modal-body {
+        max-height: 50vh;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+      
+      .no-print, .modal-header .close-btn, .button-group, .actions-bar, .card-footer, .toast, .image-modal {
+        display: none !important;
+      }
+      
+      .modal {
+        position: static;
+        display: block !important;
+        background: none;
+      }
+      
+      .modal-content {
+        width: 100%;
+        max-width: 100%;
+        box-shadow: none;
+        border: none;
+      }
+      
+      .print-area {
+        display: block !important;
+      }
+    }
+
+    .print-area {
+      display: none;
+    }
+
+    /* Loading Animation */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .loading {
+      animation: pulse 2s infinite;
+    }
+
+    /* Utility Classes */
+    .text-center { text-align: center; }
+    .text-left { text-align: left; }
+    .text-right { text-align: right; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .font-bold { font-weight: 700; }
+    .font-semibold { font-weight: 600; }
+    .font-medium { font-weight: 500; }
+
+    /* Classe para bloquear rolagem do body quando modal estiver ativo */
+    .modal-open {
+      overflow: hidden;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <div class="container no-print">
+    <header class="header">
+      <h1>Resultados PT-RIO</h1>
+      <p class="subtitle">
+        <a href="#" id="titulosLink" style="color: var(--text-secondary); text-decoration: none; cursor: pointer; transition: color 0.3s ease;">
+          Sistema Avançado de Análise e Palpites
+        </a>
+      </p>
+    </header>
+
+    <div class="calendar-container">
+      <input type="text" id="date-picker" class="date-picker" placeholder="Selecione uma data">
+      <button id="order-toggle-btn" class="order-toggle-btn">⬆⬇ Inverter Ordem</button>
+    </div>
+
+    <div id="data-container" class="data-container"></div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+      <div class="toast-icon">
+        <span id="toast-icon-text">✓</span>
+      </div>
+      <span id="toast-message"></span>
+    </div>
+
+    <!-- Modal de Títulos -->
+    <div id="titulosModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Títulos por Dia da Semana</h3>
+          <button class="close-btn" onclick="closeModal('titulosModal')">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="filter-container" style="margin-bottom: 1.5rem;">
+            <label for="dayFilter" style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 600;">Filtrar por dia da semana:</label>
+            <select id="dayFilter" style="width: 100%; padding: 0.75rem; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary); font-size: 1rem;">
+              <option value="Domingo">Domingo</option>
+              <option value="Segunda-feira">Segunda-feira</option>
+              <option value="Terça-feira">Terça-feira</option>
+              <option value="Quarta-feira">Quarta-feira</option>
+              <option value="Quinta-feira">Quinta-feira</option>
+              <option value="Sexta-feira">Sexta-feira</option>
+              <option value="Sábado">Sábado</option>
+            </select>
+          </div>
+          <div id="titulosContent" style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+            <div class="no-data loading">Carregando títulos...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modais -->
+    <div id="resumoModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Resumo de Acertos</h3>
+          <button class="close-btn" onclick="closeModal('resumoModal')">×</button>
+        </div>
+        <div class="modal-body" id="resumoModalBody"></div>
+        <div class="button-group">
+          <button class="btn btn-accent" id="resumoModalPalpitesBtn">
+            🎯 Palpites para a próxima extração
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="palpitesModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Palpites Inteligentes</h3>
+          <button class="close-btn" onclick="closeModal('palpitesModal')">×</button>
+        </div>
+        <div class="modal-body" id="palpitesModalBody"></div>
+        <div class="button-group">
+          <button class="btn btn-primary" id="voltarBtn" style="display:none;">
+            ← Voltar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Opções para Criar PNG -->
+    <div id="createPngModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Opções para Criar PNG</h3>
+          <button class="close-btn" onclick="closeModal('createPngModal')">×</button>
+        </div>
+        <div class="modal-body" id="createPngModalBody">
+          <div class="image-options">
+            <h5>🖼️ Configurações da Imagem</h5>
+            <div class="image-option">
+              <input type="checkbox" id="addBannerOption" name="addBanner" checked>
+              <label for="addBannerOption">Adicionar banner (bnr1.png)</label>
+            </div>
+            <div class="image-option">
+              <input type="checkbox" id="addPalpitesOption" name="addPalpites">
+              <label for="addPalpitesOption">Adicionar palpites acima do banner</label>
+            </div>
+          </div>
+        </div>
+        <div class="button-group">
+          <button class="btn btn-primary" onclick="closeModal('createPngModal')">
+            ← Cancelar
+          </button>
+          <button class="btn btn-accent" id="confirmCreatePngBtn">
+            🖼️ Gerar PNG
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Visualização de Imagem -->
+    <div id="imageModal" class="image-modal">
+      <div class="image-modal-content">
+        <div class="image-modal-header">
+          <h3 class="image-modal-title">Visualizar Imagem</h3>
+          <button class="image-modal-close" onclick="closeImageModal()">×</button>
+        </div>
+        <div class="image-modal-body">
+          <img id="previewImage" src="" alt="Preview da imagem">
+        </div>
+        <div class="image-modal-footer">
+          <button class="btn btn-primary" id="backToOptionsBtn" style="display: none;">
+            ← Voltar
+          </button>
+          <button class="download-btn" id="downloadImageBtn">
+            📥 Baixar PNG
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="print-area" class="print-area"></div>
+
+  <script>
+    // Variáveis globais
+    let globalData = {};
+    let activeCardId = null;
+    let selectedDateStr = getCurrentDateString(); // Usar horário do sistema
+    let lastModifiedHeader = null;
+    let autoUpdateInterval = null;
+    let toastTimeout = null;
+    let orderPreference = localStorage.getItem('orderPreference') || 'ascending'; // Padrão: ascendente (mais antigo primeiro)
+    let currentImageBlob = null;
+    let imageOptions = {
+      includeBanner: true, // Sempre incluir banner bnr1.png
+      includeGuesses: false // Opção para incluir palpites acima da bnr1.png
+    };
+    let currentCreatePngType = null;
+    let currentCreatePngCardId = null;
+    let titulosData = null; // Cache para os dados dos títulos
+
+    // Função para obter o dia da semana atual em português
+    function getCurrentDayOfWeek() {
+      const days = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+      const today = new Date();
+      return days[today.getDay()];
+    }
+
+    // Função para carregar e exibir os títulos
+    async function loadTitulos() {
+      try {
+        const response = await fetch('/resultados/titulos.json?t=' + new Date().getTime());
+        if (!response.ok) throw new Error('Não foi possível carregar os títulos.');
+        
+        titulosData = await response.json();
+        
+        // Definir o dia atual como padrão
+        const currentDay = getCurrentDayOfWeek();
+        document.getElementById('dayFilter').value = currentDay;
+        
+        // Exibir títulos do dia atual
+        displayTitulos(currentDay);
+        
+      } catch (error) {
+        document.getElementById('titulosContent').innerHTML = `<div class="no-data">Erro ao carregar títulos: ${error.message}</div>`;
+      }
+    }
+
+    // Função para exibir os títulos de um dia específico
+    function displayTitulos(dayOfWeek) {
+      const content = document.getElementById('titulosContent');
+      
+      if (!titulosData || !titulosData['1-5'] || !titulosData['1-5'][dayOfWeek]) {
+        content.innerHTML = `<div class="no-data">Nenhum título encontrado para ${dayOfWeek}.</div>`;
+        return;
+      }
+      
+      const titulos = titulosData['1-5'][dayOfWeek];
+      
+      let html = `<h4 style="margin: 0 0 1rem 0; color: var(--text-primary); font-size: 1.125rem;">📅 ${dayOfWeek}</h4>`;
+      html += '<div style="display: flex; flex-direction: column; gap: 0.75rem;">';
+      
+      titulos.forEach((titulo, index) => {
+        html += `
+          <div style="
+            background: var(--bg-card); 
+            border: 1px solid var(--border-color); 
+            border-radius: 8px; 
+            padding: 0.75rem 1rem; 
+            transition: all 0.2s ease;
+            cursor: default;
+          " onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='var(--bg-card)'">
+            <span style="color: var(--text-primary); font-weight: 500; font-family: 'JetBrains Mono', monospace;">
+              ${titulo}
+            </span>
+          </div>
+        `;
+      });
+      
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    // Event listener para o link dos títulos
+    document.addEventListener('DOMContentLoaded', function() {
+      const titulosLink = document.getElementById('titulosLink');
+      if (titulosLink) {
+        titulosLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          loadTitulos();
+          openModal('titulosModal');
+        });
+        
+        // Efeito hover no link
+        titulosLink.addEventListener('mouseenter', function() {
+          this.style.color = 'var(--accent-primary)';
+        });
+        
+        titulosLink.addEventListener('mouseleave', function() {
+          this.style.color = 'var(--text-secondary)';
+        });
+      }
+
+      // Event listener para o filtro de dia da semana
+      const dayFilter = document.getElementById('dayFilter');
+      if (dayFilter) {
+        dayFilter.addEventListener('change', function() {
+          const selectedDay = this.value;
+          displayTitulos(selectedDay);
+        });
+      }
+    });
+
+    // Função para abrir o modal de opções para criar PNG
+    function openCreatePngModal(type, cardId) {
+      currentCreatePngType = type;
+      currentCreatePngCardId = cardId;
+      
+      // Para palpites, não mostrar opções (sempre incluir apenas banner)
+      if (type === 'palpites') {
+        generateImage(type, cardId);
+        return;
+      }
+      
+      // Para resultados, mostrar modal com opções
+      const modalBody = document.getElementById('createPngModalBody');
+      modalBody.innerHTML = `
+        <div class="image-options">
+          <h5>🖼️ Configurações da Imagem</h5>
+          <div class="image-option">
+            <input type="checkbox" id="addBannerOption" name="addBanner" ${imageOptions.includeBanner ? 'checked' : ''}>
+            <label for="addBannerOption">Adicionar banner (bnr1.png)</label>
+          </div>
+          <div class="image-option">
+            <input type="checkbox" id="addPalpitesOption" name="addPalpites" ${imageOptions.includeGuesses ? 'checked' : ''}>
+            <label for="addPalpitesOption">Adicionar palpites acima do banner</label>
+          </div>
+        </div>
+      `;
+      
+      // Configurar botão de confirmação
+      document.getElementById('confirmCreatePngBtn').onclick = () => {
+        const addBanner = document.getElementById('addBannerOption').checked;
+        const addPalpites = document.getElementById('addPalpitesOption').checked;
+        imageOptions.includeBanner = addBanner;
+        imageOptions.includeGuesses = addPalpites;
+        closeModal('createPngModal');
+        generateImage(currentCreatePngType, currentCreatePngCardId);
+      };
+      
+      openModal('createPngModal');
+    }
+
+    // Função para obter a data atual no fuso horário do usuário
+    function getCurrentDateString() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
+    // Função para obter a data máxima (hoje) no fuso horário do usuário
+    function getTodayDateString() {
+      return getCurrentDateString();
+    }
+
+    // Função para determinar o caminho correto das imagens baseado na localização da página
+    function getImagePath(imageName) {
+      const currentPath = window.location.pathname;
+      const pathSegments = currentPath.split('/').filter(segment => segment !== '');
+      
+      // Se estamos na raiz ou no primeiro nível, usar img/ diretamente
+      if (pathSegments.length <= 1) {
+        return `img/${imageName}`;
+      }
+      
+      // Para subdiretórios, voltar para a raiz
+      const levelsUp = pathSegments.length - 1;
+      const relativePath = '../'.repeat(levelsUp);
+      return `${relativePath}img/${imageName}`;
+    }
+
+    // Inicialização do Flatpickr com configurações melhoradas
+    flatpickr("#date-picker", {
+      dateFormat: "Y-m-d",
+      maxDate: getTodayDateString(), // Usar horário do sistema
+      locale: "pt",
+      defaultDate: getCurrentDateString(), // Usar horário do sistema
+      allowInput: false, // Evita problemas de input em mobile
+      clickOpens: true,
+      disableMobile: false, // Permitir calendário nativo em mobile se necessário
+      position: "auto center", // Melhor posicionamento
+      onChange: (selectedDates, dateStr) => {
+        selectedDateStr = dateStr;
+        fetchData(true);
+      },
+      onOpen: function() {
+        // Garantir que o calendário seja visível em mobile
+        setTimeout(() => {
+          const calendar = document.querySelector('.flatpickr-calendar');
+          if (calendar) {
+            calendar.style.zIndex = '9999';
+          }
+        }, 10);
+      }
+    });
+
+    // Função para alternar a ordem dos cards
+    function toggleOrder() {
+      orderPreference = orderPreference === 'ascending' ? 'descending' : 'ascending';
+      localStorage.setItem('orderPreference', orderPreference);
+      document.getElementById('order-toggle-btn').textContent = orderPreference === 'ascending' ? '⬆⬇ Inverter Ordem (Mais recente primeiro)' : '⬆⬇ Inverter Ordem (Mais antigo primeiro)';
+      renderData();
+    }
+
+    // Configurar o botão de inverter ordem
+    document.getElementById('order-toggle-btn').addEventListener('click', toggleOrder);
+    document.getElementById('order-toggle-btn').textContent = orderPreference === 'ascending' ? '⬆⬇ Inverter Ordem (Mais recente primeiro)' : '⬆⬇ Inverter Ordem (Mais antigo primeiro)';
+
+    // Funções de Modal com controle de rolagem do body
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'flex';
+      document.body.classList.add('modal-open'); // Bloquear rolagem do body
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+      document.body.classList.remove('modal-open'); // Restaurar rolagem do body
+    }
+
+    // Funções do Modal de Imagem com controle de rolagem
+    function openImageModal() {
+      document.getElementById('imageModal').style.display = 'block';
+      document.body.classList.add('modal-open'); // Bloquear rolagem do body
+    }
+
+    function closeImageModal() {
+      document.getElementById('imageModal').style.display = 'none';
+      document.body.classList.remove('modal-open'); // Restaurar rolagem do body
+      currentImageBlob = null;
+    }
+
+    // Fechar modal clicando fora com controle de rolagem
+    window.onclick = (event) => {
+      if (event.target.classList.contains('modal')) {
+        closeModal(event.target.id);
+      }
+      if (event.target.classList.contains('image-modal')) {
+        closeImageModal();
+      }
+    };
+
+    // Função principal para buscar dados
+    async function fetchData(isManualAction = false) {
+      const isToday = (selectedDateStr === getCurrentDateString()); // Usar horário do sistema
+      
+      if (isManualAction) {
+        lastModifiedHeader = null;
+        if (autoUpdateInterval) clearInterval(autoUpdateInterval);
+        document.getElementById('data-container').innerHTML = '<div class="no-data loading">Carregando dados...</div>';
+      }
+
+      const url = `resultados/PT-RIO/${selectedDateStr}.json`;
+      try {
+        const response = await fetch(url, { cache: "no-store" });
+        if (!response.ok) throw new Error(`Resultados para ${selectedDateStr} não encontrados.`);
+        
+        const newLastModified = response.headers.get('Last-Modified');
+        if (newLastModified && newLastModified === lastModifiedHeader) {
+          return;
+        }
+        lastModifiedHeader = newLastModified;
+
+        const newData = await response.json();
+        const oldDataString = JSON.stringify(globalData);
+        const newDataString = JSON.stringify(newData);
+
+        if (oldDataString !== newDataString) {
+            globalData = newData;
+            renderData();
+            if (!isManualAction) {
+                const lastTitle = findLastResultTitle(globalData);
+                showToast(`Resultado ${lastTitle} atualizado!`);
+            }
+        }
+      } catch (error) {
+        if (isManualAction) {
+            document.getElementById('data-container').innerHTML = `<div class="no-data">${error.message}</div>`;
+        }
+      } finally {
+        if (isToday && !autoUpdateInterval) {
+            autoUpdateInterval = setInterval(() => fetchData(false), 60000);
+        } else if (!isToday && autoUpdateInterval) {
+            clearInterval(autoUpdateInterval);
+            autoUpdateInterval = null;
+        }
+      }
+    }
+
+    // Renderizar dados na página
+    function renderData() {
+      const container = document.getElementById('data-container');
+      container.innerHTML = '';
+      let hasContent = false;
+
+      const versions = ['1-5', '1-10'];
+      let cards = [];
+
+      versions.forEach(version => {
+        if (globalData[version]) {
+          for (const title in globalData[version]) {
+            hasContent = true;
+            const resultData = globalData[version][title];
+            const cardId = `${version}-${title.replace(/[^a-zA-Z0-9]/g, '')}`;
+            const card = createCard(cardId, version, title, resultData);
+            cards.push({ card, title, version });
+          }
+        }
+      });
+
+      // Ordenar os cards com base na preferência
+      cards.sort((a, b) => {
+        const timeA = extractTime(a.title);
+        const timeB = extractTime(b.title);
+        return orderPreference === 'ascending' ? timeA - timeB : timeB - timeA;
+      });
+
+      cards.forEach(({ card }) => {
+        container.appendChild(card);
+      });
+
+      if (!hasContent) {
+        container.innerHTML = '<div class="no-data">Nenhum resultado disponível para a data selecionada.</div>';
+      }
+      
+      toggleResultView();
+    }
+
+    // Função para extrair o horário do título para ordenação
+    function extractTime(title) {
+      const match = title.match(/(\d{2}:\d{2})/);
+      if (match) {
+        const [hours, minutes] = match[1].split(':').map(Number);
+        return hours * 60 + minutes;
+      }
+      return 0; // Fallback para títulos sem horário
+    }
+
+    // Criar card de resultado
+    function createCard(cardId, version, title, data) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.id = cardId;
+        card.dataset.version = version;
+
+        // Header do card
+        const header = document.createElement('div');
+        header.className = 'card-header';
+        const cardTitle = document.createElement('h2');
+        cardTitle.className = 'card-title';
+        cardTitle.textContent = title;
+        header.appendChild(cardTitle);
+        card.appendChild(header);
+
+        // Body do card
+        const body = document.createElement('div');
+        body.className = 'card-body';
+        
+        if (data.dados && data.dados.some(d => d.Milhar)) {
+            // Container da tabela
+            const tableContainer = document.createElement('div');
+            tableContainer.className = 'table-container';
+            
+            const table = document.createElement('table');
+            table.innerHTML = `
+                <thead>
+                    <tr>${data.cabecalhos.map(h => `<th>${h}</th>`).join('')}</tr>
+                </thead>
+                <tbody>
+                    ${data.dados.map(row => `<tr>${data.cabecalhos.map(h => `<td>${row[h] || '-'}</td>`).join('')}</tr>`).join('')}
+                </tbody>
+            `;
+            tableContainer.appendChild(table);
+            body.appendChild(tableContainer);
+
+            // Timestamp usando horário do sistema
+            const timestamp = document.createElement('div');
+            timestamp.className = 'timestamp';
+            timestamp.textContent = getFormattedTimestamp(selectedDateStr);
+            body.appendChild(timestamp);
+
+            // Actions bar
+            const actionsBar = document.createElement('div');
+            actionsBar.className = 'actions-bar';
+            actionsBar.innerHTML = `
+                <button class="btn btn-primary" onclick="shareContent('result', '${cardId}')">
+                    📤 Compartilhar
+                </button>
+                <button class="btn btn-primary" onclick="copyContent('result', '${cardId}')">
+                    📋 Copiar
+                </button>
+                <button class="btn btn-accent" onclick="openCreatePngModal('result', '${cardId}')">
+                    🖼️ Criar PNG
+                </button>
+            `;
+            body.appendChild(actionsBar);
+
+        } else {
+            body.innerHTML = '<div class="no-data">Aguardando resultados...</div>';
+        }
+        card.appendChild(body);
+
+        // Footer com balões de acertos
+        const footer = document.createElement('div');
+        footer.className = 'card-footer';
+        if (data.acertos) {
+            for (let i = 0; i < (data.acertos.Milhar || 0); i++) {
+                footer.innerHTML += `<div class="acerto-balao milhar" title="Milhar e Centena">M</div>`;
+            }
+            for (let i = 0; i < (data.acertos.Centena || 0); i++) {
+                footer.innerHTML += `<div class="acerto-balao centena" title="Centena e Dezena">C</div>`;
+            }
+            if (data.acertos.Dezena > 0) {
+                footer.innerHTML += `<div class="acerto-balao dezena" title="Dezenas">${data.acertos.Dezena}</div>`;
+            }
+            if (data.acertos.Grupo) {
+                data.acertos.Grupo.forEach(emoji => {
+                    footer.innerHTML += `<div class="acerto-balao grupo" title="Grupo">${emoji}</div>`;
+                });
+            }
+        }
+        card.appendChild(footer);
+
+        // Button group
+        const buttonGroup = document.createElement('div');
+        buttonGroup.className = 'button-group';
+        buttonGroup.innerHTML = `
+            <button class="btn btn-primary toggle-view-btn">
+                👁️ Ver do 1º ao 10º
+            </button>
+            <button class="btn btn-primary" onclick="showResumo('${cardId}')">
+                📊 Ver resumo de acertos
+            </button>
+            <button class="btn btn-accent" onclick="showPalpites(false, '${cardId}')">
+                🎯 Palpites para a próxima extração
+            </button>
+        `;
+        card.appendChild(buttonGroup);
+
+        return card;
+    }
+
+    // Alternar visualização entre 1-5 e 1-10
+    function toggleResultView() {
+        const has1to5 = document.querySelector('[data-version="1-5"]');
+        const has1to10 = document.querySelector('[data-version="1-10"]');
+        let show1to10 = localStorage.getItem('viewPreference') === '1-10';
+
+        if (!has1to5 && has1to10) show1to10 = true;
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.display = (show1to10 ? card.dataset.version === '1-10' : card.dataset.version === '1-5') ? 'block' : 'none';
+        });
+
+        document.querySelectorAll('.toggle-view-btn').forEach(btn => {
+            btn.innerHTML = show1to10 ? '👁️ Ver do 1º ao 5º' : '👁️ Ver do 1º ao 10º';
+            btn.onclick = () => {
+                localStorage.setItem('viewPreference', localStorage.getItem('viewPreference') === '1-10' ? '1-5' : '1-10');
+                toggleResultView();
+            };
+        });
+    }
+
+    // Mostrar resumo de acertos
+    function showResumo(cardId) {
+        activeCardId = cardId;
+        const [version, titleKey] = getCardDetails(cardId);
+        const data = globalData[version][titleKey];
+
+        const modalBody = document.getElementById('resumoModalBody');
+        let content = '<h4>📊 Resultados</h4>';
+        
+        content += `
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>${data.cabecalhos.map(h => `<th>${h}</th>`).join('')}</tr>
+                    </thead>
+                    <tbody>
+                        ${data.dados.map(row => `<tr>${data.cabecalhos.map(h => `<td>${row[h] || '-'}</td>`).join('')}</tr>`).join('')}
+                    </tbody>
+                </table>
+            </div>
+        `;
+
+        content += `<div class="timestamp">${getFormattedTimestamp(selectedDateStr)}</div>`;
+        
+        content += `
+            <div class="actions-bar">
+                <button class="btn btn-primary" onclick="shareContent('result', '${cardId}')">
+                    📤 Compartilhar
+                </button>
+                <button class="btn btn-primary" onclick="copyContent('result', '${cardId}')">
+                    📋 Copiar Resultado
+                </button>
+                <button class="btn btn-accent" onclick="openCreatePngModal('result', '${cardId}')">
+                    🖼️ Criar PNG
+                </button>
+            </div>
+        `;
+
+        content += '<h4 style="margin-top: 2rem;">🎯 Frases de Acertos</h4>';
+        const frasesContainer = document.createElement('div');
+        frasesContainer.className = 'frases-acertos';
+        
+        if (data.frases && Object.keys(data.frases).length > 0) {
+            for (const palpite in data.frases) {
+                data.frases[palpite].forEach(frase => {
+                    frasesContainer.innerHTML += `<p><strong>Palpite ${palpite}:</strong><br>${frase.replace(/<br>/g, ' ')}</p>`;
+                });
+            }
+            content += frasesContainer.outerHTML;
+            content += `
+                <div class="actions-bar" style="padding-top:0;">
+                    <button class="btn btn-primary" onclick="copyContent('frases', '${cardId}')">
+                        📋 Copiar Frases de Acertos
+                    </button>
+                </div>
+            `;
+        } else {
+            frasesContainer.innerHTML = '<p>Nenhum acerto com os palpites fornecidos.</p>';
+            content += frasesContainer.outerHTML;
+        }
+        
+        content += `<p style="margin-top: 2rem; font-style: italic; color: var(--text-secondary);">${data.resumo || ''}</p>`;
+        
+        modalBody.innerHTML = content;
+        document.getElementById('resumoModalPalpitesBtn').onclick = () => showPalpites(true, cardId);
+        openModal('resumoModal');
+    }
+
+    // Mostrar palpites
+    async function showPalpites(fromResumo, cardId) {
+        activeCardId = cardId;
+        const modalBody = document.getElementById('palpitesModalBody');
+        modalBody.innerHTML = '<div class="no-data loading">Carregando palpites...</div>';
+        
+        document.getElementById('voltarBtn').style.display = fromResumo ? 'inline-flex' : 'none';
+        document.getElementById('voltarBtn').onclick = () => {
+            closeModal('palpitesModal');
+            openModal('resumoModal');
+        };
+
+        try {
+            const response = await fetch('resultados/palpites.json?t=' + new Date().getTime());
+            if (!response.ok) throw new Error('Não foi possível carregar os palpites.');
+            const palpitesData = await response.json();
+            
+            const [version, ] = getCardDetails(cardId);
+            const frase = palpitesData[`frase_${version}`] || "Palpites para a próxima extração:";
+            
+            let content = `<h4>🎯 ${frase}</h4>`;
+            content += `<div class="font-mono" style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 12px; word-break: break-word; line-height: 1.8;">${palpitesData.palpites.join(', ')}</div>`;
+            
+            // Modal de palpites não precisa de opções de imagem (sempre inclui banner)
+            content += `
+                <div class="actions-bar" style="margin-top: 2rem;">
+                    <button class="btn btn-primary" onclick="shareContent('palpites', '${cardId}')">
+                        📤 Compartilhar
+                    </button>
+                    <button class="btn btn-primary" onclick="copyContent('palpites', '${cardId}')">
+                        📋 Copiar Palpites
+                    </button>
+                    <button class="btn btn-accent" onclick="generateImage('palpites', '${cardId}')">
+                        🖼️ Criar PNG
+                    </button>
+                </div>
+            `;
+            modalBody.innerHTML = content;
+        } catch (error) {
+            modalBody.innerHTML = `<div class="no-data">${error.message}</div>`;
+        }
+
+        if (fromResumo) closeModal('resumoModal');
+        openModal('palpitesModal');
+    }
+
+    // Função para gerar imagem PNG usando Canvas nativo com layout melhorado
+    async function generateImage(type, cardId) {
+        try {
+            const [version, titleKey] = getCardDetails(cardId);
+            const data = globalData[version][titleKey];
+            
+            // Verificar opções de imagem para resultados
+            if (type === 'result') {
+                const selectedOption = document.querySelector('input[name="imageContent"]:checked');
+                if (selectedOption) {
+                    imageOptions.includeBanner = selectedOption.value === 'banner';
+                    imageOptions.includeGuesses = selectedOption.value === 'guesses';
+                }
+            }
+            
+            // Criar canvas com tamanho otimizado
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Configurar tamanho do canvas no formato 9:16 para mobile
+            canvas.width = 720; // Largura otimizada para mobile
+            canvas.height = 1280; // Altura no formato 9:16 (720 * 16/9)
+            
+            // Tentar carregar e desenhar bkg.png como plano de fundo
+            try {
+                const bkgImg = new Image();
+                bkgImg.crossOrigin = 'anonymous';
+                await new Promise((resolve, reject) => {
+                    bkgImg.onload = resolve;
+                    bkgImg.onerror = resolve; // Continuar mesmo se a imagem falhar
+                    bkgImg.src = getImagePath('bkg.png');
+                    setTimeout(resolve, 2000); // Timeout de 2 segundos
+                });
+                
+                if (bkgImg.complete && bkgImg.naturalWidth > 0) {
+                    // Desenhar a imagem de fundo cobrindo todo o canvas
+                    ctx.drawImage(bkgImg, 0, 0, canvas.width, canvas.height);
+                } else {
+                    // Fallback: usar gradiente se bkg.png não carregar
+                    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+                    gradient.addColorStop(0, '#1a1a2e');
+                    gradient.addColorStop(0.3, '#16213e');
+                    gradient.addColorStop(0.7, '#0f0f23');
+                    gradient.addColorStop(1, '#0a0a1a');
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                }
+            } catch (error) {
+                console.log('bkg.png não carregada, usando gradiente padrão');
+                // Fallback: usar gradiente se bkg.png não carregar
+                const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+                gradient.addColorStop(0, '#1a1a2e');
+                gradient.addColorStop(0.3, '#16213e');
+                gradient.addColorStop(0.7, '#0f0f23');
+                gradient.addColorStop(1, '#0a0a1a');
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+            
+            // Adicionar efeito de borda sutil
+            ctx.strokeStyle = 'rgba(59, 130, 246, 0.3)';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(10, 10, canvas.width - 20, canvas.height - 20);
+            
+            let yPosition = 80; // Mais espaçamento inicial
+            
+            // Tentar carregar e desenhar logo
+            try {
+                const logoImg = new Image();
+                logoImg.crossOrigin = 'anonymous';
+                await new Promise((resolve, reject) => {
+                    logoImg.onload = resolve;
+                    logoImg.onerror = resolve; // Continuar mesmo se a logo falhar
+                    logoImg.src = getImagePath('logo.png');
+                    setTimeout(resolve, 2000); // Timeout de 2 segundos
+                });
+                
+                if (logoImg.complete && logoImg.naturalWidth > 0) {
+                    const originalLogoHeight = 80;
+                    const logoHeight = originalLogoHeight * 1.5; // Aumentar em 50%
+                    const logoWidth = (logoImg.naturalWidth / logoImg.naturalHeight) * logoHeight;
+                    const logoX = (canvas.width - logoWidth) / 2;
+                    ctx.drawImage(logoImg, logoX, 30, logoWidth, logoHeight);
+                    yPosition = 30 + logoHeight + 60; // Espaço maior abaixo do logo
+                }
+            } catch (error) {
+                console.log('Logo não carregada, continuando sem ela');
+            }
+            
+            // Configurar fonte principal
+            ctx.textAlign = 'center';
+            ctx.fillStyle = '#ffffff';
+            
+            if (type === 'result') {
+                // Título principal com estilo melhorado
+                ctx.font = 'bold 36px Inter, Arial, sans-serif';
+                ctx.fillStyle = '#ffffff';
+                ctx.fillText(titleKey, canvas.width / 2, yPosition);
+                yPosition += 50; // Espaçamento menor para a data
+                
+                // Data abaixo do título
+                ctx.font = 'bold 20px Inter, Arial, sans-serif';
+                ctx.fillStyle = '#94a3b8';
+                ctx.fillText(getFormattedTimestamp(selectedDateStr), canvas.width / 2, yPosition);
+                yPosition += 80; // Espaçamento após a data
+                
+                // Desenhar tabela ocupando toda a largura com fonte maior e espaçamento reduzido
+                ctx.font = '32px JetBrains Mono, monospace'; // Fonte ainda maior para mobile
+                
+                // Cabeçalhos da tabela - largura total
+                const tableWidth = canvas.width - 40; // 20px de margem de cada lado
+                const colWidth = tableWidth / data.cabecalhos.length;
+                const startX = 20;
+                
+                // Fundo dos cabeçalhos
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.2)';
+                ctx.fillRect(startX, yPosition - 20, tableWidth, 32); // Altura reduzida
+                
+                // Texto dos cabeçalhos
+                ctx.fillStyle = '#3b82f6';
+                ctx.font = 'bold 28px Inter, Arial, sans-serif'; // Fonte maior
+                data.cabecalhos.forEach((header, index) => {
+                    ctx.fillText(header, startX + (index + 0.5) * colWidth, yPosition);
+                });
+                yPosition += 40; // Espaçamento reduzido
+                
+                // Dados da tabela com espaçamento reduzido
+                ctx.font = '30px JetBrains Mono, monospace'; // Fonte maior
+                data.dados.forEach((row, rowIndex) => {
+                    // Alternar cor de fundo das linhas
+                    if (rowIndex % 2 === 0) {
+                        ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+                        ctx.fillRect(startX, yPosition - 15, tableWidth, 25); // Altura reduzida
+                    }
+                    
+                    data.cabecalhos.forEach((header, colIndex) => {
+                        // Destacar primeira linha (1º lugar)
+                        ctx.fillStyle = rowIndex === 0 ? '#FFD700' : '#e2e8f0';
+                        const text = row[header] || '-';
+                        
+                        // Adicionar coroa para o primeiro lugar
+                        if (rowIndex === 0 && colIndex === 0) {
+                            ctx.fillText('👑 ' + text, startX + (colIndex + 0.5) * colWidth, yPosition);
+                        } else {
+                            ctx.fillText(text, startX + (colIndex + 0.5) * colWidth, yPosition);
+                        }
+                    });
+                    yPosition += 30; // Espaçamento reduzido
+                });
+                
+                // Verificar se deve incluir palpites em vez do banner
+                if (imageOptions.includeGuesses) {
+                    try {
+                        const response = await fetch('resultados/palpites.json?t=' + new Date().getTime());
+                        const palpitesData = await response.json();
+                        const frase = palpitesData[`frase_${version}`] || "Palpites para a próxima extração:";
+                        
+                        yPosition += 40; // Espaçamento antes dos palpites
+                        
+                        // Título dos palpites
+                        ctx.font = 'bold 24px Inter, Arial, sans-serif';
+                        ctx.fillStyle = '#ffffff';
+                        
+                        // Quebrar título em múltiplas linhas se necessário
+                        const words = frase.split(' ');
+                        let line = '';
+                        const maxWidth = canvas.width - 40;
+                        
+                        for (let n = 0; n < words.length; n++) {
+                            const testLine = line + words[n] + ' ';
+                            const metrics = ctx.measureText(testLine);
+                            
+                            if (metrics.width > maxWidth && n > 0) {
+                                ctx.fillText(line, canvas.width / 2, yPosition);
+                                line = words[n] + ' ';
+                                yPosition += 30;
+                            } else {
+                                line = testLine;
+                            }
+                        }
+                        ctx.fillText(line, canvas.width / 2, yPosition);
+                        yPosition += 40; // Espaçamento menor para a data
+                        
+                        // Data abaixo do título dos palpites
+                        ctx.font = 'bold 18px Inter, Arial, sans-serif';
+                        ctx.fillStyle = '#94a3b8';
+                        ctx.fillText(getFormattedTimestamp(selectedDateStr), canvas.width / 2, yPosition);
+                        yPosition += 60; // Espaçamento horizontal maior entre título e grade
+                        
+                        // Configurar grade de 5 colunas para os palpites (mobile-friendly)
+                        const gridCols = 5;
+                        const gridStartX = 20;
+                        const gridWidth = canvas.width - 40; // 20px de margem de cada lado
+                        const cellWidth = gridWidth / gridCols;
+                        const cellHeight = 60; // Altura maior para mobile
+                        const fontSize = 24; // Fonte compatível para mobile
+                        
+                        ctx.font = `bold ${fontSize}px JetBrains Mono, monospace`;
+                        ctx.textAlign = 'center';
+                        
+                        // Fundo para a grade de palpites - alinhamento perfeito
+                        const gridRows = Math.ceil(palpitesData.palpites.length / gridCols);
+                        const gridHeight = gridRows * cellHeight;
+                        ctx.fillStyle = 'rgba(59, 130, 246, 0.1)';
+                        // Ajustar o fundo para alinhar perfeitamente com as células
+                        ctx.fillRect(gridStartX, yPosition - cellHeight/2, gridWidth, gridHeight);
+                        
+                        // Desenhar os palpites em grade
+                        palpitesData.palpites.forEach((palpite, index) => {
+                            const row = Math.floor(index / gridCols);
+                            const col = index % gridCols;
+                            
+                            const cellX = gridStartX + col * cellWidth;
+                            const cellY = yPosition + row * cellHeight;
+                            
+                            // Fundo alternado para as células - alinhamento correto
+                            if ((row + col) % 2 === 0) {
+                                ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+                                ctx.fillRect(cellX, cellY - cellHeight/2, cellWidth, cellHeight);
+                            }
+                            
+                            // Texto do palpite
+                            ctx.fillStyle = '#e2e8f0';
+                            ctx.fillText(palpite, cellX + cellWidth/2, cellY + fontSize/3);
+                        });
+                        
+                        yPosition += gridHeight + 10; // Espaçamento mínimo após a grade para tocar o banner
+                        
+                    } catch (error) {
+                        console.log('Erro ao carregar palpites para imagem');
+                    }
+                }
+                
+            } else if (type === 'palpites') {
+                try {
+                    const response = await fetch('resultados/palpites.json?t=' + new Date().getTime());
+                    const palpitesData = await response.json();
+                    const frase = palpitesData[`frase_${version}`] || "Palpites para a próxima extração:";
+                    
+                    // Título dos palpites
+                    ctx.font = 'bold 28px Inter, Arial, sans-serif';
+                    ctx.fillStyle = '#ffffff';
+                    
+                    // Quebrar título em múltiplas linhas se necessário
+                    const words = frase.split(' ');
+                    let line = '';
+                    const maxWidth = canvas.width - 40;
+                    
+                    for (let n = 0; n < words.length; n++) {
+                        const testLine = line + words[n] + ' ';
+                        const metrics = ctx.measureText(testLine);
+                        
+                        if (metrics.width > maxWidth && n > 0) {
+                            ctx.fillText(line, canvas.width / 2, yPosition);
+                            line = words[n] + ' ';
+                            yPosition += 35;
+                        } else {
+                            line = testLine;
+                        }
+                    }
+                    ctx.fillText(line, canvas.width / 2, yPosition);
+                    yPosition += 40; // Espaçamento menor para a data
+                    
+                    // Data abaixo do título dos palpites
+                    ctx.font = 'bold 18px Inter, Arial, sans-serif';
+                    ctx.fillStyle = '#94a3b8';
+                    ctx.fillText(getFormattedTimestamp(selectedDateStr), canvas.width / 2, yPosition);
+                    yPosition += 80; // Espaçamento horizontal maior entre título e grade
+                    
+                    // Configurar grade de 5 colunas para os palpites (mobile-friendly)
+                    const gridCols = 5;
+                    const gridStartX = 20;
+                    const gridWidth = canvas.width - 40; // 20px de margem de cada lado
+                    const cellWidth = gridWidth / gridCols;
+                    const cellHeight = 60; // Altura maior para mobile
+                    const fontSize = 24; // Fonte compatível para mobile
+                    
+                    ctx.font = `bold ${fontSize}px JetBrains Mono, monospace`;
+                    ctx.textAlign = 'center';
+                    
+                    // Fundo para a grade de palpites - alinhamento perfeito
+                    const gridRows = Math.ceil(palpitesData.palpites.length / gridCols);
+                    const gridHeight = gridRows * cellHeight;
+                    ctx.fillStyle = 'rgba(59, 130, 246, 0.1)';
+                    // Ajustar o fundo para alinhar perfeitamente com as células
+                    ctx.fillRect(gridStartX, yPosition - cellHeight/2, gridWidth, gridHeight);
+                    
+                    // Desenhar os palpites em grade
+                    palpitesData.palpites.forEach((palpite, index) => {
+                        const row = Math.floor(index / gridCols);
+                        const col = index % gridCols;
+                        
+                        const cellX = gridStartX + col * cellWidth;
+                        const cellY = yPosition + row * cellHeight;
+                        
+                        // Fundo alternado para as células - alinhamento correto
+                        if ((row + col) % 2 === 0) {
+                            ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+                            ctx.fillRect(cellX, cellY - cellHeight/2, cellWidth, cellHeight);
+                        }
+                        
+                        // Texto do palpite
+                        ctx.fillStyle = '#e2e8f0';
+                        ctx.fillText(palpite, cellX + cellWidth/2, cellY + fontSize/3);
+                    });
+                    
+                    yPosition += gridHeight + 10; // Espaçamento mínimo após a grade para tocar o banner
+                    
+                } catch (error) {
+                    ctx.fillText('Erro ao carregar palpites', canvas.width / 2, yPosition);
+                    yPosition += 60;
+                }
+            }
+            
+            // Espaço para a imagem bnr1.png (condicional baseado nas opções)
+            if (type === 'palpites' || (type === 'result' && imageOptions.includeBanner)) {
+                yPosition += 10; // Espaçamento mínimo antes do banner para tocar a grade
+                
+                // Tentar carregar e desenhar bnr1.png com dimensões ajustadas automaticamente
+                try {
+                    const bnrImg = new Image();
+                    bnrImg.crossOrigin = 'anonymous';
+                    await new Promise((resolve, reject) => {
+                        bnrImg.onload = resolve;
+                        bnrImg.onerror = resolve; // Continuar mesmo se a imagem falhar
+                        bnrImg.src = getImagePath('bnr1.png');
+                        setTimeout(resolve, 2000); // Timeout de 2 segundos
+                    });
+                    
+                    if (bnrImg.complete && bnrImg.naturalWidth > 0) {
+                        // Calcular espaço disponível até o domínio - largura total da imagem
+                        const availableHeight = canvas.height - yPosition - 120; // Deixar 120px para o domínio e espaçamento
+                        const availableWidth = canvas.width; // Largura total da imagem gerada
+                        
+                        // Calcular dimensões mantendo proporção e usando a largura total
+                        const bnrAspectRatio = bnrImg.naturalWidth / bnrImg.naturalHeight;
+                        let bnrWidth = availableWidth;
+                        let bnrHeight = bnrWidth / bnrAspectRatio;
+                        
+                        // Se a altura calculada exceder o espaço disponível, ajustar pela altura
+                        if (bnrHeight > availableHeight) {
+                            bnrHeight = availableHeight;
+                            bnrWidth = bnrHeight * bnrAspectRatio;
+                        }
+                        
+                        // Centralizar horizontalmente (mesmo que use largura total)
+                        const bnrX = (canvas.width - bnrWidth) / 2;
+                        
+                        ctx.drawImage(bnrImg, bnrX, yPosition, bnrWidth, bnrHeight);
+                        yPosition += bnrHeight + 20; // Espaçamento após o banner
+                    }
+                } catch (error) {
+                    console.log('Banner não carregado, continuando sem ele');
+                }
+            }
+            
+            // Domínio do site na parte inferior com fonte muito maior
+            ctx.font = 'bold 48px Inter, Arial, sans-serif'; // Fonte grande para mobile
+            ctx.fillStyle = '#94a3b8';
+            ctx.fillText(window.location.hostname, canvas.width / 2, canvas.height - 60); // Espaçamento abaixo
+            
+            // Converter canvas para blob
+            canvas.toBlob((blob) => {
+                if (!blob) {
+                    throw new Error('Falha ao gerar imagem');
+                }
+                
+                currentImageBlob = blob;
+                
+                // Criar URL para preview
+                const imageUrl = URL.createObjectURL(blob);
+                document.getElementById('previewImage').src = imageUrl;
+                
+                // Configurar botão de download
+                document.getElementById('downloadImageBtn').onclick = () => {
+                    const link = document.createElement('a');
+                    link.href = imageUrl;
+                    link.download = `${type}_${titleKey.replace(/[^a-zA-Z0-9]/g, '_')}_${selectedDateStr}.png`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                };
+                
+                // Configurar botão 'Voltar' (apenas para resultados)
+                const backBtn = document.getElementById('backToOptionsBtn');
+                if (type === 'result') {
+                    backBtn.style.display = 'inline-flex';
+                    backBtn.onclick = () => {
+                        closeImageModal();
+                        openCreatePngModal(currentCreatePngType, currentCreatePngCardId);
+                    };
+                } else {
+                    backBtn.style.display = 'none';
+                }
+                
+                // Abrir modal de visualização
+                openImageModal();
+            }, 'image/png', 0.9);
+            
+        } catch (error) {
+            console.error('Erro ao gerar imagem:', error);
+            alert('Erro ao gerar imagem: ' + error.message);
+        }
+    }
+
+    // Mostrar notificação toast
+    function showToast(message) {
+        const toast = document.getElementById("toast");
+        const messageSpan = document.getElementById("toast-message");
+
+        if (toastTimeout) {
+            clearTimeout(toastTimeout);
+        }
+
+        messageSpan.textContent = message;
+        toast.classList.add("show");
+
+        toastTimeout = setTimeout(() => {
+            toast.classList.remove("show");
+        }, 4000);
+    }
+
+    // Formatar timestamp usando horário do sistema
+    function getFormattedTimestamp(dateStr) {
+        const date = new Date(dateStr + 'T12:00:00');
+        return date.toLocaleDateString('pt-BR', { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+    }
+
+    // Gerar texto para compartilhamento/cópia
+    async function generateText(type, cardId) {
+        const [version, titleKey] = getCardDetails(cardId);
+        const data = globalData[version][titleKey];
+        const pageUrl = window.location.href;
+        const timestamp = getFormattedTimestamp(selectedDateStr);
+
+        if (type === 'result') {
+            let text = `*Resultado ${titleKey}*\n_${timestamp}_\n\n`;
+            data.dados.forEach(row => {
+                text += `${row['Prêmio'] || ''}: *${row['Milhar'] || ''}* - ${row['Grupo'] || ''} ${row['Bicho'] || ''}\n`;
+            });
+            text += `\nVeja mais em: ${pageUrl}`;
+            return text;
+        }
+
+        if (type === 'frases') {
+            let text = `*Frases de Acertos - ${titleKey}*\n\n`;
+            if (data.frases && Object.keys(data.frases).length > 0) {
+                for (const palpite in data.frases) {
+                    data.frases[palpite].forEach(frase => {
+                        text += `Palpite ${palpite}: ${frase.replace(/<br>/g, ' ')}\n`;
+                    });
+                }
+            } else {
+                text = "Nenhuma frase de acerto para este resultado.";
+            }
+            return text;
+        }
+
+        if (type === 'palpites') {
+            try {
+                const response = await fetch('resultados/palpites.json?t=' + new Date().getTime());
+                if (!response.ok) return "Não foi possível carregar os palpites.";
+                const palpitesData = await response.json();
+                const frase = palpitesData[`frase_${version}`] || "Palpites para a próxima extração:";
+                let text = `*${frase}*\n\n${palpitesData.palpites.join(', ')}\n\nConfira os resultados em: ${pageUrl}`;
+                return text;
+            } catch { 
+                return "Erro ao gerar texto dos palpites."; 
+            }
+        }
+    }
+
+    // Compartilhar conteúdo
+    async function shareContent(type, cardId) {
+        const text = await generateText(type, cardId);
+        if (navigator.share) {
+            navigator.share({ title: 'Resultado/Palpites', text }).catch(console.error);
+        } else {
+            showToast('Compartilhamento não suportado neste dispositivo.');
+        }
+    }
+
+    // Copiar conteúdo
+    async function copyContent(type, cardId) {
+        const text = await generateText(type, cardId);
+        try {
+            await navigator.clipboard.writeText(text);
+            showToast('Conteúdo copiado com sucesso!');
+        } catch (err) {
+            showToast('Falha ao copiar conteúdo.');
+        }
+    }
+
+    // Obter detalhes do card
+    function getCardDetails(cardId) {
+        const card = document.getElementById(cardId);
+        const version = card.dataset.version;
+        const titleKey = Object.keys(globalData[version]).find(key => 
+            key.replace(/[^a-zA-Z0-9]/g, '') === cardId.replace(version + '-', '')
+        );
+        return [version, titleKey];
+    }
+
+    // Encontrar último título de resultado
+    function findLastResultTitle(data) {
+        let lastTitle = "desconhecido";
+        const versions = ['1-10', '1-5'];
+        for (const version of versions) {
+            if (data[version]) {
+                const titles = Object.keys(data[version]);
+                for (let i = titles.length - 1; i >= 0; i--) {
+                    const title = titles[i];
+                    if (data[version][title].dados && data[version][title].dados.some(d => d.Milhar)) {
+                        return title;
+                    }
+                }
+            }
+        }
+        return lastTitle;
+    }
+
+    // Inicializar aplicação
+    fetchData(true);
+  </script>
+</body>
+</html>
