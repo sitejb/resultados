@@ -324,6 +324,78 @@
         "Grupo": []
       },
       "resumo": "Palpites dados para esta extração: 0511, 5511, 6511"
+    },
+    "PT-RIO, RJ, 21:20, CORUJA": {
+      "cabecalhos": [
+        "Prêmio",
+        "Milhar",
+        "Grupo",
+        "Bicho"
+      ],
+      "dados": [
+        {
+          "Prêmio": "1º",
+          "Milhar": "2456",
+          "Grupo": "14",
+          "Bicho": "Gato"
+        },
+        {
+          "Prêmio": "2º",
+          "Milhar": "0558",
+          "Grupo": "15",
+          "Bicho": "Jacaré"
+        },
+        {
+          "Prêmio": "3º",
+          "Milhar": "6210",
+          "Grupo": "03",
+          "Bicho": "Burro"
+        },
+        {
+          "Prêmio": "4º",
+          "Milhar": "4191",
+          "Grupo": "23",
+          "Bicho": "Urso"
+        },
+        {
+          "Prêmio": "5º",
+          "Milhar": "3159",
+          "Grupo": "15",
+          "Bicho": "Jacaré"
+        },
+        {
+          "Prêmio": "6º [soma]",
+          "Milhar": "6574",
+          "Grupo": "",
+          "Bicho": ""
+        },
+        {
+          "Prêmio": "7º [mult]",
+          "Milhar": "370",
+          "Grupo": "",
+          "Bicho": ""
+        }
+      ],
+      "frases": {
+        "5511": [
+          "BURRO 🐴 no terceiro prêmio!<br>com o palpite 5511"
+        ],
+        "6511": [
+          "BURRO 🐴 no terceiro prêmio!<br>com o palpite 6511"
+        ],
+        "0511": [
+          "BURRO 🐴 no terceiro prêmio!<br>com o palpite 0511"
+        ]
+      },
+      "acertos": {
+        "Milhar": 0,
+        "Centena": 0,
+        "Dezena": 0,
+        "Grupo": [
+          "🐴"
+        ]
+      },
+      "resumo": "Palpites dados para esta extração: 0511, 5511, 6511"
     }
   },
   "1-10": {
@@ -751,6 +823,96 @@
         "Centena": 0,
         "Dezena": 0,
         "Grupo": []
+      },
+      "resumo": "Palpites dados para esta extração: 0511, 5511, 6511"
+    },
+    "PT-RIO, RJ, 21:20, CORUJA do 1º ao 10º": {
+      "cabecalhos": [
+        "Prêmio",
+        "Milhar",
+        "Grupo",
+        "Bicho"
+      ],
+      "dados": [
+        {
+          "Prêmio": "1º",
+          "Milhar": "2456",
+          "Grupo": "14",
+          "Bicho": "Gato"
+        },
+        {
+          "Prêmio": "2º",
+          "Milhar": "0558",
+          "Grupo": "15",
+          "Bicho": "Jacaré"
+        },
+        {
+          "Prêmio": "3º",
+          "Milhar": "6210",
+          "Grupo": "03",
+          "Bicho": "Burro"
+        },
+        {
+          "Prêmio": "4º",
+          "Milhar": "4191",
+          "Grupo": "23",
+          "Bicho": "Urso"
+        },
+        {
+          "Prêmio": "5º",
+          "Milhar": "3159",
+          "Grupo": "15",
+          "Bicho": "Jacaré"
+        },
+        {
+          "Prêmio": "6º",
+          "Milhar": "2064",
+          "Grupo": "16",
+          "Bicho": "Leão"
+        },
+        {
+          "Prêmio": "7º",
+          "Milhar": "4521",
+          "Grupo": "06",
+          "Bicho": "Cabra"
+        },
+        {
+          "Prêmio": "8º",
+          "Milhar": "5519",
+          "Grupo": "05",
+          "Bicho": "Cachorro"
+        },
+        {
+          "Prêmio": "9º",
+          "Milhar": "6801",
+          "Grupo": "01",
+          "Bicho": "Avestruz"
+        },
+        {
+          "Prêmio": "10º",
+          "Milhar": "5479",
+          "Grupo": "20",
+          "Bicho": "Peru"
+        }
+      ],
+      "frases": {
+        "5511": [
+          "BURRO 🐴 no terceiro prêmio!<br>com o palpite 5511"
+        ],
+        "6511": [
+          "BURRO 🐴 no terceiro prêmio!<br>com o palpite 6511"
+        ],
+        "0511": [
+          "BURRO 🐴 no terceiro prêmio!<br>com o palpite 0511"
+        ]
+      },
+      "acertos": {
+        "Milhar": 0,
+        "Centena": 0,
+        "Dezena": 0,
+        "Grupo": [
+          "🐴"
+        ]
       },
       "resumo": "Palpites dados para esta extração: 0511, 5511, 6511"
     }
