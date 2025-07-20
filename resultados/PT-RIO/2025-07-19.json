@@ -391,22 +391,14 @@
           "Bicho": "Cabra"
         }
       ],
-      "frases": {
-        "6566": [
-          "Dezena no terceiro prêmio!<br>com o palpite 6566",
-          "MACACO 🐒 no terceiro prêmio!<br>com o palpite 6566",
-          "MACACO 🐒 no sexto prêmio!<br>com o palpite 6566"
-        ]
-      },
+      "frases": {},
       "acertos": {
         "Milhar": 0,
         "Centena": 0,
-        "Dezena": 1,
-        "Grupo": [
-          "🐒"
-        ]
+        "Dezena": 0,
+        "Grupo": []
       },
-      "resumo": "Palpites dados para esta extração: 6516, 6556, 6566, 6576"
+      "resumo": "Palpites dados para esta extração: 0511, 5511, 6511"
     },
     "PT-RIO, RJ, 11:00, PTM do 1º ao 10º": {
       "cabecalhos": [
@@ -484,7 +476,7 @@
         "Dezena": 0,
         "Grupo": []
       },
-      "resumo": "Palpites dados para esta extração: 6516, 6556, 6566, 6576"
+      "resumo": "Palpites dados para esta extração: 0511, 5511, 6511"
     },
     "PT-RIO, RJ, 14:20, PT do 1º ao 10º": {
       "cabecalhos": [
@@ -556,26 +548,25 @@
         }
       ],
       "frases": {
-        "6556": [
-          "Dezena no primeiro prêmio!<br>com o palpite 6556",
-          "GATO 🐈 no primeiro prêmio!<br>com o palpite 6556"
+        "5511": [
+          "BURRO 🐴 no sétimo prêmio!<br>com o palpite 5511"
         ],
-        "6566": [
-          "MACACO 🐒 no sexto prêmio!<br>com o palpite 6566",
-          "Dezena no nono prêmio!<br>com o palpite 6566",
-          "MACACO 🐒 no nono prêmio!<br>com o palpite 6566"
+        "6511": [
+          "BURRO 🐴 no sétimo prêmio!<br>com o palpite 6511"
+        ],
+        "0511": [
+          "BURRO 🐴 no sétimo prêmio!<br>com o palpite 0511"
         ]
       },
       "acertos": {
         "Milhar": 0,
         "Centena": 0,
-        "Dezena": 2,
+        "Dezena": 0,
         "Grupo": [
-          "🐈",
-          "🐒"
+          "🐴"
         ]
       },
-      "resumo": "Palpites dados para esta extração: 6516, 6556, 6566, 6576"
+      "resumo": "Palpites dados para esta extração: 0511, 5511, 6511"
     },
     "PT-RIO, RJ, 16:00, PTV do 1º ao 10º": {
       "cabecalhos": [
@@ -647,36 +638,38 @@
         }
       ],
       "frases": {
-        "6516": [
-          "BORBOLETA 🦋 no oitavo prêmio!<br>com o palpite 6516",
-          "BORBOLETA 🦋 no nono prêmio!<br>com o palpite 6516"
+        "5511": [
+          "Dezena no segundo prêmio!<br>com o palpite 5511",
+          "BURRO 🐴 no segundo prêmio!<br>com o palpite 5511",
+          "Centena e Dezena no terceiro prêmio!<br>com o palpite 5511",
+          "Dezena no terceiro prêmio!<br>com o palpite 5511",
+          "BURRO 🐴 no terceiro prêmio!<br>com o palpite 5511"
         ],
-        "6556": [
-          "GATO 🐈 no quarto prêmio!<br>com o palpite 6556",
-          "GATO 🐈 no sétimo prêmio!<br>com o palpite 6556"
+        "6511": [
+          "Dezena no segundo prêmio!<br>com o palpite 6511",
+          "BURRO 🐴 no segundo prêmio!<br>com o palpite 6511",
+          "Milhar e Centena no terceiro prêmio!<br>com o palpite 6511",
+          "Centena e Dezena no terceiro prêmio!<br>com o palpite 6511",
+          "Dezena no terceiro prêmio!<br>com o palpite 6511",
+          "BURRO 🐴 no terceiro prêmio!<br>com o palpite 6511"
         ],
-        "6566": [
-          "Centena e Dezena no sexto prêmio!<br>com o palpite 6566",
-          "Dezena no sexto prêmio!<br>com o palpite 6566",
-          "MACACO 🐒 no sexto prêmio!<br>com o palpite 6566"
-        ],
-        "6576": [
-          "Dezena no décimo prêmio!<br>com o palpite 6576",
-          "PAVÃO 🦚 no décimo prêmio!<br>com o palpite 6576"
+        "0511": [
+          "Dezena no segundo prêmio!<br>com o palpite 0511",
+          "BURRO 🐴 no segundo prêmio!<br>com o palpite 0511",
+          "Centena e Dezena no terceiro prêmio!<br>com o palpite 0511",
+          "Dezena no terceiro prêmio!<br>com o palpite 0511",
+          "BURRO 🐴 no terceiro prêmio!<br>com o palpite 0511"
         ]
       },
       "acertos": {
-        "Milhar": 0,
-        "Centena": 1,
-        "Dezena": 2,
+        "Milhar": 1,
+        "Centena": 3,
+        "Dezena": 6,
         "Grupo": [
-          "🐈",
-          "🐒",
-          "🦋",
-          "🦚"
+          "🐴"
         ]
       },
-      "resumo": "Palpites dados para esta extração: 6516, 6556, 6566, 6576"
+      "resumo": "Palpites dados para esta extração: 0511, 5511, 6511"
     },
     "A FEDERAL DO BRASIL - RJ do 1º ao 10º": {
       "cabecalhos": [
@@ -747,20 +740,14 @@
           "Bicho": "Leão"
         }
       ],
-      "frases": {
-        "6556": [
-          "GATO 🐈 no sétimo prêmio!<br>com o palpite 6556"
-        ]
-      },
+      "frases": {},
       "acertos": {
         "Milhar": 0,
         "Centena": 0,
         "Dezena": 0,
-        "Grupo": [
-          "🐈"
-        ]
+        "Grupo": []
       },
-      "resumo": "Palpites dados para esta extração: 6516, 6556, 6566, 6576"
+      "resumo": "Palpites dados para esta extração: 0511, 5511, 6511"
     }
   }
 }
