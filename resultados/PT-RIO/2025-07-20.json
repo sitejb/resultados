@@ -246,35 +246,35 @@
         }
       ],
       "frases": {
-        "6051": [
-          "GALO 🐓 no sétimo prêmio!<br>com o palpite 6051"
-        ],
         "6054": [
           "Dezena no quarto prêmio!<br>com o palpite 6054",
           "GATO 🐈 no quarto prêmio!<br>com o palpite 6054"
         ],
-        "6059": [
-          "JACARÉ 🐊 no décimo prêmio!<br>com o palpite 6059"
+        "6084": [
+          "TOURO 🐂 no quinto prêmio!<br>com o palpite 6084"
         ],
-        "6551": [
-          "GALO 🐓 no sétimo prêmio!<br>com o palpite 6551"
+        "6094": [
+          "VEADO 🦌 no oitavo prêmio!<br>com o palpite 6094"
         ],
         "6554": [
           "Dezena no quarto prêmio!<br>com o palpite 6554",
           "GATO 🐈 no quarto prêmio!<br>com o palpite 6554"
         ],
-        "6559": [
-          "JACARÉ 🐊 no décimo prêmio!<br>com o palpite 6559"
+        "6584": [
+          "TOURO 🐂 no quinto prêmio!<br>com o palpite 6584"
         ],
-        "6851": [
-          "GALO 🐓 no sétimo prêmio!<br>com o palpite 6851"
+        "6594": [
+          "VEADO 🦌 no oitavo prêmio!<br>com o palpite 6594"
         ],
         "6854": [
           "Dezena no quarto prêmio!<br>com o palpite 6854",
           "GATO 🐈 no quarto prêmio!<br>com o palpite 6854"
         ],
-        "6859": [
-          "JACARÉ 🐊 no décimo prêmio!<br>com o palpite 6859"
+        "6884": [
+          "TOURO 🐂 no quinto prêmio!<br>com o palpite 6884"
+        ],
+        "6894": [
+          "VEADO 🦌 no oitavo prêmio!<br>com o palpite 6894"
         ]
       },
       "acertos": {
@@ -283,11 +283,11 @@
         "Dezena": 3,
         "Grupo": [
           "🐈",
-          "🐓",
-          "🐊"
+          "🐂",
+          "🦌"
         ]
       },
-      "resumo": "Palpites dados para esta extração: 6051, 6054, 6059, 6551, 6554, 6559, 6851, 6854, 6859"
+      "resumo": "Palpites dados para esta extração: 6054, 6064, 6084, 6094, 6554, 6564, 6584, 6594, 6854, 6864, 6884, 6894"
     },
     "PT-RIO, RJ, 11:00, PTM do 1º ao 10º": {
       "cabecalhos": [
@@ -359,29 +359,40 @@
         }
       ],
       "frases": {
-        "6051": [
-          "Dezena no quinto prêmio!<br>com o palpite 6051",
-          "GALO 🐓 no quinto prêmio!<br>com o palpite 6051"
+        "6064": [
+          "LEÃO 🦁 no terceiro prêmio!<br>com o palpite 6064"
         ],
-        "6551": [
-          "Centena e Dezena no quinto prêmio!<br>com o palpite 6551",
-          "Dezena no quinto prêmio!<br>com o palpite 6551",
-          "GALO 🐓 no quinto prêmio!<br>com o palpite 6551"
+        "6094": [
+          "Milhar e Centena no quarto prêmio!<br>com o palpite 6094",
+          "Centena e Dezena no quarto prêmio!<br>com o palpite 6094",
+          "Dezena no quarto prêmio!<br>com o palpite 6094",
+          "VEADO 🦌 no quarto prêmio!<br>com o palpite 6094"
         ],
-        "6851": [
-          "Dezena no quinto prêmio!<br>com o palpite 6851",
-          "GALO 🐓 no quinto prêmio!<br>com o palpite 6851"
+        "6564": [
+          "LEÃO 🦁 no terceiro prêmio!<br>com o palpite 6564"
+        ],
+        "6594": [
+          "Dezena no quarto prêmio!<br>com o palpite 6594",
+          "VEADO 🦌 no quarto prêmio!<br>com o palpite 6594"
+        ],
+        "6864": [
+          "LEÃO 🦁 no terceiro prêmio!<br>com o palpite 6864"
+        ],
+        "6894": [
+          "Dezena no quarto prêmio!<br>com o palpite 6894",
+          "VEADO 🦌 no quarto prêmio!<br>com o palpite 6894"
         ]
       },
       "acertos": {
-        "Milhar": 0,
+        "Milhar": 1,
         "Centena": 1,
         "Dezena": 3,
         "Grupo": [
-          "🐓"
+          "🦁",
+          "🦌"
         ]
       },
-      "resumo": "Palpites dados para esta extração: 6051, 6054, 6059, 6551, 6554, 6559, 6851, 6854, 6859"
+      "resumo": "Palpites dados para esta extração: 6054, 6064, 6084, 6094, 6554, 6564, 6584, 6594, 6854, 6864, 6884, 6894"
     },
     "PT-RIO, RJ, 14:20, PT do 1º ao 10º": {
       "cabecalhos": [
